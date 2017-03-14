@@ -23,14 +23,7 @@ const todo = (state, action) => {
                 ...state,
                 completed: !state.completed
             };
-        case 'EDIT_TODO':
-            if(state.id !== action.id){
-                return state;
-            }
-            return {
-                ...state,
-                text: "Hello"
-            };
+
         default:
             return state;
     }
@@ -44,10 +37,6 @@ const todos = (state = [], action) => {
                 todo(undefined, action)
             ];
         case 'TOGGLE_TODO':
-            return state.map(t => todo(t, action));
-        case 'EDIT_TODO':
-            return state.map(t => todo(t, action));
-        case 'DELETE_TODO':
             return state.map(t => todo(t, action));
         default:
             return state;
@@ -67,18 +56,6 @@ const todoApp = combineReducers({
     todos,
     visibilityFilter
 });
-// const todoApp = (state = {}, action) => {
-//     return {
-//         todos: todos(
-//             state.todos,
-//             action
-//         ),
-//         visibilityFilter: visibilityFilter(
-//             state.visibilityFilter,
-//             action
-//         )
-//     }
-// };
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
@@ -182,45 +159,6 @@ it('Toggles Todo Reducer without mutation.', () => {
    };
 });
 
-it('Edits a Todo without mutation', () => {
-    const testEditTodo = () => {
-        const stateBefore = [
-            {
-                id: 0,
-                text: 'Learn Redux',
-                completed: false
-            },
-            {
-                id: 1,
-                text: 'Go Shopping',
-                completed: false
-            }
-        ];
-        const action = {
-            type: 'EDIT_TODO',
-            id: 1,
-        };
-        const stateAfter = [
-            {
-                id: 0,
-                text: 'Learn Redux',
-                completed: false
-            },
-            {
-                id: 1,
-                text: 'Hello',
-                completed: false
-            }
-        ];
-
-        deepFreeze(stateBefore);
-        deepFreeze(action);
-
-        expect(
-            todos(stateBefore,action)
-        ).toEqual(stateAfter);
-    };
-});
 
 const store = createStore(todoApp);
 
@@ -263,17 +201,6 @@ console.log('Dispatching SET_VISIBILITY_FILTER');
 store.dispatch({
     type: 'SET_VISIBILITY_FILTER',
     filter: 'SHOW_COMPLETED',
-});
-
-console.log('Current state:');
-console.log(store.getState());
-console.log('===============');
-
-console.log('EDIT_TODO');
-
-store.dispatch({
-    type: 'EDIT_TODO',
-    id: 1
 });
 
 console.log('Current state:');

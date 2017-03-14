@@ -14,18 +14,6 @@ const todo = (state = {}, action) => {
             return Object.assign({}, state, {
                 completed: !state.completed
             });
-        case 'EDIT_TODO':
-            if(state.id !== action.id){
-                return state;
-            }
-            return Object.assign({}, state, {
-                // text: input.value;
-            });
-        case 'DELETE_TODO':
-            if(state.id !== action.id){
-                return state;
-            }
-            return
         default:
             return state;
     }
