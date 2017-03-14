@@ -26,7 +26,8 @@ npm install --save react-redux
 npm install --save-dev redux-devtools
 ```
 react-redux is used to connect redux reducers to react components
-###Adding Jest tests:
+
+###Adding Jest tests:###
 ```
 npm install --save-dev jest
 ```
@@ -39,6 +40,10 @@ Test Driven Devolopement is high reccommended when using react-redux to write Re
  ```
  These help ensure that testing Redux states and actions are left un-mutated which is extremely important principle in Redux.
  
+ ###Observations:
  
+ I quickly noticed just with this basic todo application that file structure will be a huge issue working in redux-react application as they get very messy very quickly I will have to look into other files structures that will make the files easier to find and organize.
+ 
+ Jest Tests are a must in redux they are absolute life savers!!!
  
  
