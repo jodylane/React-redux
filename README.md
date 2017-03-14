@@ -39,9 +39,8 @@ Test Driven Devolopement is high reccommended when using react-redux to write Re
  npm install deep-freeze
  ```
  These help ensure that testing Redux states and actions are left un-mutated which is extremely important principle in Redux.
- 
- ### Observations:
- 
+
+### Observations:
  I quickly noticed just with this basic todo application that file structure will be a huge issue working in redux-react application as they get very messy very quickly I will have to look into other files structures that will make the files easier to find and organize.
  
  Jest Tests are a must in redux they are absolute life savers!!!
