@@ -46,4 +46,4 @@ Test Driven Devolopement is high reccommended when using react-redux to write Re
  
  Jest Tests are a must in redux they are absolute life savers!!!
  
- 
+ Use es6 methods: .map(), object.assign(), .concat(), and es6 operator such as ... spread for arrays when writing reducers.
